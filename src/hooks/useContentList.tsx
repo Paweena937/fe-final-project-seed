@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ContentListHook } from '../types/contentList.hook'
 import { ContentDto } from '../types/dto'
 
@@ -9,6 +9,22 @@ const useContentList = (): ContentListHook => {
 
   // TODO: implement fetching logic here, don't forget to appropiately UPDATE ALL RELATED STATES according to each scenario
   // TODO: i.e. fetch completed, fetch failed due to technical reason
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true)
+      try {
+        const res = await fetch('https://api.learnhub.thanayut.in.th/content')
+        const data = await res.json()
+        setData(data)
+      } catch (err) {
+        console.log(err)
+      } finally {
+        setError(false)
+      }
+    }
+
+    fetchData()
+  }, [])
 
   return {
     data,

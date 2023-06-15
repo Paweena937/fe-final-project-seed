@@ -2,6 +2,7 @@ import { FormEvent, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthProvider'
 import classes from './Login.module.css'
+import * as React from 'react'
 
 const Login = () => {
   const navigate = useNavigate()

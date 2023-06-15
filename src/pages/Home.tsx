@@ -3,6 +3,7 @@ import Banner from '../components/Banner'
 import ContentList from '../components/ContentList'
 import { useAuth } from '../contexts/AuthProvider'
 import classes from './Home.module.css'
+import * as React from 'react'
 
 const Home = () => {
   const { isLoggedIn } = useAuth()

@@ -1,14 +1,14 @@
-import { ReactNode } from "react";
-import { ContentDto } from "./dto";
+import { ReactNode } from 'react'
+import { ContentDto } from './dto'
 
 type FetchAuthorizationHeader = {
   Authorization: `Bearer ${string}`
 }
 
 export interface IAuthContext {
-  id: string | null;
-  token: string | null;
-  isLoggedIn: boolean;
+  id: string | null
+  token: string | null
+  isLoggedIn: boolean
   login: (username: string, password: string) => Promise<unknown>
   logout: () => void
 
@@ -17,6 +17,6 @@ export interface IAuthContext {
   isOwnPost?: (c: ContentDto) => boolean
 }
 
-export interface ChildProps { 
-  children: ReactNode;
+export interface ChildProps {
+  children: ReactNode
 }

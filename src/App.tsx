@@ -9,6 +9,7 @@ import Create from './pages/Create'
 import Edit from './pages/Edit'
 import Home from './pages/Home'
 import Login from './pages/Login'
+import * as React from 'react'
 
 function App() {
   return (

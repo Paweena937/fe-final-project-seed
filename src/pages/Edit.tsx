@@ -6,6 +6,7 @@ import { useAuth } from '../contexts/AuthProvider'
 import withGuard from '../guards/withGuard'
 import useContent from '../hooks/useContent'
 import classes from './Edit.module.css'
+import * as React from 'react'
 
 const Edit = () => {
   const { id } = useParams()
@@ -55,13 +56,7 @@ const Edit = () => {
         <div className={classes.formGroup}>
           <div className={classes.ratingContainer}>
             <label>Rating</label>
-            <ReactStars
-              count={5}
-              value={rating}
-              size={42}
-              half={false}
-              color2="#ff731d"
-            />
+            <ReactStars count={5} value={rating} size={42} half={false} color2="#ff731d" />
           </div>
         </div>
         <div className={classes.formGroup}>

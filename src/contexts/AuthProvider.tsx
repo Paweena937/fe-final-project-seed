@@ -3,7 +3,7 @@ import { host } from '../constant'
 import { ChildProps, IAuthContext } from '../types/auth.context'
 
 /* Typescript section, JS guys can ignore for now */
-export interface AuthProviderProps extends ChildProps {}
+export type AuthProviderProps = ChildProps
 type UserInfo = Pick<IAuthContext, 'id' | 'token'>
 
 type LoginFunc = IAuthContext['login']
@@ -41,8 +41,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
   const login: LoginFunc = async (username, password) => {
     try {
       const accessToken = 'foobar'
-      // TODO: write login logic here, once you got token, the rest is to retrieve user info from /auth/me API
-
+      // : write login logic here, once you got token, the rest is to retrieve user info from /auth/me API
       const { id } = await retrieveUserData(accessToken)
 
       // TODO: update login and ALL RELATED STATES after login succeed
@@ -53,6 +52,9 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const logout: LogoutFunc = async () => {
     // TODO: logout procedures
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+    setIsLoggedIn(false)
   }
 
   const getAuthHeader: GetAuthHeaderFunc = () => ({

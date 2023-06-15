@@ -1,22 +1,11 @@
 import { Link } from 'react-router-dom'
 import { ContentDto } from '../types/dto'
 import classes from './ContentCard.module.css'
+import React from 'react'
 
-const ContentCard = ({
-  id,
-  videoTitle,
-  comment,
-  rating,
-  thumbnailUrl,
-  creatorName,
-  postedBy,
-}: ContentDto) => (
+const ContentCard = ({ id, videoTitle, comment, rating, thumbnailUrl, creatorName, postedBy }: ContentDto) => (
   <Link to={`/content/${id}`} className={classes.card}>
-    <img
-      className={classes.thumbnail}
-      src={thumbnailUrl}
-      alt={`${videoTitle} video thumbnail`}
-    />
+    <img className={classes.thumbnail} src={thumbnailUrl} alt={`${videoTitle} video thumbnail`} />
 
     <div>
       <div>
@@ -32,12 +21,7 @@ const ContentCard = ({
         <p>{postedBy.name}</p>
         <div className={classes.rating}>
           {[...Array(rating).keys()].map((star) => (
-            <img
-              key={star}
-              className={classes.star}
-              src="/star.svg"
-              alt="Rating Star"
-            />
+            <img key={star} className={classes.star} src="/star.svg" alt="Rating Star" />
           ))}
         </div>
       </div>
